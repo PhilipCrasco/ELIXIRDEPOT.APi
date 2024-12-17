@@ -1,0 +1,38 @@
+
+networks:
+  rdf.elixirdepot.api:
+
+services:
+  elixirdepot.api:
+    image: ${DOCKER_REGISTRY-}elixirdepotapi
+    build:
+      context: .
+      dockerfile: ELIXIRETD.API/Dockerfile
+    ports:
+    - "5009:5009"
+    - "5008:5008"
+    depends_on: 
+      - elixirdepot.database
+    networks: 
+      - rdf.elixirdepot.api
+
+  elixirdepot.database: 
+     image: mcr.microsoft.com/mssql/server:2022-latest
+     container_name: elixirdepot.database
+     user: root
+     environment:
+         - ACCEPT_EULA=Y
+         - MSSQL_SA_PASSWORD=Aldrin004!
+         - DB_NAME=ProjectGL
+         - DB_SA_PASSWORD=Aldrin004!
+     networks:
+       - rdf.elixirdepot.api
+     volumes:
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
+      - elixirdepot-volume:/var/lib/mysql
+     ports:
+        - "5003:1433"
+volumes:
+  elixirdepot-volume:

@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "elixiretd.api": "StartDebugging"
+        "elixiretd.api": "StartDebugging",
+        "elixirdepot.api": "StartDebugging"
       }
     }
   }
