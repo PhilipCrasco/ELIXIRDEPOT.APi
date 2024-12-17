@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d1260e66-8984-45f1-a3b4-215a0603d773</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\BORROWED_CONTROLLER\BorrowedController.cs~RF1a93823.TMP" />
+    <None Remove="Controllers\ORDERING_CONTROLLER\OrderingController.cs~RF1900bdd.TMP" />
+    <None Remove="Controllers\ORDERING_CONTROLLER\OrderingController.cs~RFb66bd4.TMP" />
+    <None Remove="Controllers\SETUP_CONTROLLER\MaterialController.cs~RF16917e1.TMP" />
+    <None Remove="Controllers\SETUP_CONTROLLER\MaterialController.cs~RF1e0928c.TMP" />
+    <None Remove="Controllers\SETUP_CONTROLLER\MaterialController.cs~RF3922c5.TMP" />
+    <None Remove="Controllers\SETUP_CONTROLLER\MaterialController.cs~RFaa334.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ELIXIRETD.DATA\ELIXIRDEPOT.DATA.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+
+
+
+</Project>
