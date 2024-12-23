@@ -62,10 +62,10 @@ namespace ELIXIRDEPOT.DATA.SERVICES
         private string generateJwtToken(User user)
         {
             var key = _configuration.GetValue<string>("JwtConfig:Key");
+            var audience = _configuration.GetValue<string>("JwtConfig:Audience");
+            var issuer = _configuration.GetValue<string>("JwtConfig:Issuer");
             var keyBytes = Encoding.ASCII.GetBytes(key);
-
             var tokenHandler = new JwtSecurityTokenHandler();
-
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
 
@@ -75,6 +75,8 @@ namespace ELIXIRDEPOT.DATA.SERVICES
 
                 }),
                 Expires = null,
+                Issuer = issuer,
+                Audience = audience,
                 SigningCredentials = new SigningCredentials
                (new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
 
